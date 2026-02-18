@@ -1,0 +1,63 @@
+.review-selector {
+  padding: 1rem;
+  background: white;
+  margin: 0.75rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.preference-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.preference-btn {
+  min-height: 50px;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.preference-btn:hover {
+  border-color: #e60000;
+  background: #fff5f5;
+}
+
+.preference-btn.active {
+  border-color: #e60000;
+  background: #ffe5e5;
+  color: #cc0000;
+}
+
+.preference-btn .emoji {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 481px) {
+  .preference-buttons {
+    flex-direction: row;
+  }
+  
+  .preference-btn {
+    flex: 1;
+  }
+}

@@ -1,0 +1,138 @@
+.instructions {
+  padding: 1rem;
+  background: white;
+  margin: 0.75rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.section-header-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.section-title {
+  font-size: 1rem;
+  margin: 0;
+  color: #333;
+  text-align: center;
+}
+
+.instructions-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.link-section {
+  width: 100%;
+}
+
+.google-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #4285f4;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  min-height: 50px;
+}
+
+.google-link:hover {
+  background: #357ae8;
+}
+
+.external-icon {
+  font-size: 1.2rem;
+}
+
+.screencast-section {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+}
+
+.screencast-gif {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.screencast-placeholder {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  padding: 2rem;
+}
+
+.placeholder-content {
+  text-align: center;
+  color: #666;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.placeholder-content p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.placeholder-subtitle {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.steps-list {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #e60000;
+}
+
+.steps-list h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.steps-list ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.steps-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.steps-list li:last-child {
+  margin-bottom: 0;
+}

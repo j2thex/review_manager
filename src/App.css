@@ -1,0 +1,138 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --vodafone-red: #e60000;
+  --vodafone-red-dark: #cc0000;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-light: #999;
+  --border-color: #e0e0e0;
+  --bg-light: #f9f9f9;
+  --bg-white: #ffffff;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f5f5f5;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+}
+
+/* Error message styling */
+.error-message {
+  margin: 0.75rem;
+  padding: 0.75rem;
+  background: #fff3cd;
+  border: 2px solid #ffc107;
+  border-radius: 8px;
+  color: #856404;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+.error-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0;
+  }
+  
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Tablet and desktop */
+@media (min-width: 481px) {
+  .main-content {
+    padding: 0.5rem;
+  }
+  
+  .review-selector,
+  .stress-points-selector,
+  .review-generator,
+  .generated-review,
+  .instructions {
+    margin: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    max-width: 700px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--vodafone-red);
+  outline-offset: 2px;
+}
+
+/* Ensure touch targets are at least 44x44px */
+button,
+a {
+  min-height: 44px;
+  min-width: 44px;
+}

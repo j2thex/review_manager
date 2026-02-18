@@ -1,0 +1,123 @@
+.generated-review {
+  padding: 1rem;
+  background: white;
+  margin: 0.75rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+  text-align: center;
+}
+
+.review-text-container {
+  background: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  min-height: 80px;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.review-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.regeneration-info {
+  text-align: center;
+}
+
+.regeneration-count {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.regeneration-count.no-more {
+  color: #999;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.regenerate-btn,
+.copy-btn {
+  flex: 1;
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.regenerate-btn {
+  background: #f0f0f0;
+  color: #333;
+  border: 2px solid #e0e0e0;
+}
+
+.regenerate-btn:hover:not(:disabled) {
+  background: #e0e0e0;
+  border-color: #ccc;
+}
+
+.regenerate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.copy-btn {
+  background: #e60000;
+  color: white;
+}
+
+.copy-btn:hover {
+  background: #cc0000;
+}
+
+.copy-btn.copied {
+  background: #4caf50;
+}
+
+.copy-btn .checkmark {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 481px) {
+  .review-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .regeneration-info {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .action-buttons {
+    flex: 1;
+  }
+}

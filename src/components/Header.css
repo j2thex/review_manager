@@ -1,0 +1,82 @@
+.header {
+  background: white;
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  gap: 0.5rem;
+}
+
+.logo-container,
+.photo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 50px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+.vodafone-logo {
+  /* Removed filter to show logo properly - logo should be visible on red background */
+  background: transparent;
+}
+
+.photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+.logo-placeholder,
+.photo-placeholder {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.photo-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border: 2px solid #e0e0e0;
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.5rem;
+  }
+  
+  .logo {
+    max-height: 40px;
+  }
+  
+  .photo {
+    width: 50px;
+    height: 50px;
+  }
+}
