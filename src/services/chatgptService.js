@@ -17,7 +17,7 @@ export async function generateReview(stressPoints = []) {
   // EDIT THE PROMPT HERE (positive reviews only)
   // ============================================
   // Construct the prompt based on user selections
-  let prompt = `Write a positive Google Maps review for a Vodafone store. Be unique and creatve. Mention Eimy who helped you. `
+  let prompt = `Write a positive Google Maps review for a Vodafone store. Be unique and creatve. Mention Eimy who helped you. Choose a random positive word from the English disctionary and use it in the review. `
 
   if (stressPoints && stressPoints.length > 0) {
     prompt += `Please highlight the following aspects in a natural way: ${stressPoints.join(', ')}. `
@@ -53,7 +53,7 @@ export async function generateReview(stressPoints = []) {
         }
       ],
       max_tokens: 200,
-      temperature: 0.7
+      temperature: 0.9
     })
 
     const reviewText = completion.choices[0]?.message?.content?.trim()

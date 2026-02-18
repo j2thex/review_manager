@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './ReviewEditor.css'
+import chatgptLogo from '../assets/chatgpt-logo.png'
 
 function ReviewEditor({ 
   preference, 
@@ -56,15 +57,18 @@ function ReviewEditor({
       {isLiked && (
         <div className="chatgpt-header">
           <img 
-            src="/chatgpt-logo.png" 
+            src={chatgptLogo} 
             alt="ChatGPT Logo" 
             className="chatgpt-logo"
             onError={(e) => {
               e.target.style.display = 'none'
-              e.target.nextSibling.style.display = 'block'
+              e.target.nextSibling.style.display = 'flex'
             }}
           />
-          <div className="chatgpt-placeholder" style={{display: 'none'}}>🤖 ChatGPT</div>
+          <div className="chatgpt-placeholder" style={{display: 'none'}}>
+            <span>ChatGPT</span>
+          </div>
+          <span className="chatgpt-header-title">Review assistant</span>
         </div>
       )}
 
