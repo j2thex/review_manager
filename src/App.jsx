@@ -109,7 +109,7 @@ function App() {
           </div>
         )}
 
-        <Instructions />
+        {preference && <Instructions />}
       </main>
     </div>
   )

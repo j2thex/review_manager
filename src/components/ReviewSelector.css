@@ -1,17 +1,20 @@
 .review-selector {
-  padding: 1rem;
-  background: white;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
   margin: 0.75rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.section-title {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-  color: #333;
+.experience-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem 0;
   text-align: center;
-  line-height: 1.4;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  color: #111827;
 }
 
 .preference-buttons {
@@ -21,43 +24,76 @@
 }
 
 .preference-btn {
-  min-height: 50px;
-  padding: 0.75rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  background: white;
-  font-size: 0.95rem;
+  min-height: 64px;
+  padding: 1rem 1.25rem;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  font-size: 1.05rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  font-weight: 500;
-  color: #333;
+  gap: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
-.preference-btn:hover {
-  border-color: #e60000;
-  background: #fff5f5;
+.preference-btn .btn-label {
+  letter-spacing: 0.01em;
 }
 
-.preference-btn.active {
-  border-color: #e60000;
-  background: #ffe5e5;
-  color: #cc0000;
+/* Like button – positive, inviting */
+.preference-like {
+  background: linear-gradient(135deg, #ff5f6d 0%, #e60000 100%);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.preference-btn .emoji {
-  font-size: 1.5rem;
+.preference-like:hover {
+  background: linear-gradient(135deg, #ff7a85 0%, #ff1f3d 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 6px 18px rgba(230, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.preference-like.active {
+  background: linear-gradient(135deg, #ff1f3d 0%, #b80000 100%);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(184, 0, 0, 0.6);
+}
+
+/* Dislike button – neutral, constructive */
+.preference-dislike {
+  background: linear-gradient(135deg, #f4f4f5 0%, #e4e4e7 100%);
+  color: #27272a;
+  border-color: #d4d4d8;
+}
+
+.preference-dislike:hover {
+  background: linear-gradient(135deg, #e5e5e9 0%, #d4d4d8 100%);
+  border-color: #a1a1aa;
+  box-shadow: 0 4px 16px rgba(24, 24, 27, 0.18);
+  transform: translateY(-1px);
+}
+
+.preference-dislike.active {
+  background: linear-gradient(135deg, #e4e4e7 0%, #d4d4d8 100%);
+  color: #18181b;
+  border-color: #71717a;
+  box-shadow: 0 6px 18px rgba(24, 24, 27, 0.28);
 }
 
 @media (min-width: 481px) {
   .preference-buttons {
     flex-direction: row;
+    gap: 1.25rem;
   }
-  
+
   .preference-btn {
     flex: 1;
+    min-height: 72px;
+    font-size: 1.1rem;
   }
 }
