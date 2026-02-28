@@ -26,7 +26,7 @@ export async function generateReview(stressPoints = [], lang = 'en') {
     prompt += `Please highlight the following aspects in a natural way: ${stressPoints.join(', ')}. `
   }
 
-  prompt += `The review should sound authentic, focus on what went well, be concise (2-4 sentences), and be appropriate for Google Maps. Write it from a happy customer's perspective.`
+  prompt += `The review should sound authentic, focus on what went well, be concise (2-4 sentences), and be appropriate for Google Maps. Write it from a happy customer's perspective. Output ONLY the review text itself - no notes, no preamble, no "Here is a review:", no explanations, no meta-commentary.`
 
   try {
     // ============================================
@@ -41,7 +41,7 @@ export async function generateReview(stressPoints = [], lang = 'en') {
     // Or set VITE_CHATGPT_SYSTEM_MESSAGE in .env
     // ============================================
     const systemMessage = import.meta.env.VITE_CHATGPT_SYSTEM_MESSAGE || 
-      'You are a helpful assistant that writes authentic, positive Google Maps reviews for businesses.'
+      'You write authentic, positive Google Maps reviews. Reply with ONLY the review text, nothing else - no notes, no preamble, no explanations.'
     
     const completion = await openai.chat.completions.create({
       model: model,
