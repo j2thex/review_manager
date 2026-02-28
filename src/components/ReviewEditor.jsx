@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './ReviewEditor.css'
 import chatgptLogo from '../assets/chatgpt-logo.png'
+import { useTranslation } from '../LanguageContext'
 
 function ReviewEditor({ 
   preference, 
@@ -11,6 +12,7 @@ function ReviewEditor({
   isLoading,
   maxRegenerations = 3 
 }) {
+  const { t } = useTranslation()
   const [copied, setCopied] = useState(false)
   const [localReviewText, setLocalReviewText] = useState(reviewText || '')
   
@@ -68,7 +70,7 @@ function ReviewEditor({
           <div className="chatgpt-placeholder" style={{display: 'none'}}>
             <span>ChatGPT</span>
           </div>
-          <span className="chatgpt-header-title">Review assistant</span>
+          <span className="chatgpt-header-title">{t('reviewAssistant')}</span>
         </div>
       )}
 
@@ -77,7 +79,7 @@ function ReviewEditor({
           className="review-textarea"
           value={localReviewText}
           onChange={(e) => setLocalReviewText(e.target.value)}
-          placeholder={isLiked ? "Generated review will appear here..." : "Write your review here..."}
+          placeholder={isLiked ? t('generatedPlaceholder') : t('writePlaceholder')}
           rows={6}
           disabled={isLoading && isLiked}
           aria-label="Review text"
@@ -91,15 +93,15 @@ function ReviewEditor({
               className="generate-btn"
               onClick={onGenerate}
               disabled={isLoading}
-              aria-label="Generate review"
+              aria-label={t('generateReview')}
             >
               {isLoading ? (
                 <>
                   <span className="spinner"></span>
-                  <span>Generating...</span>
+                  <span>{t('generating')}</span>
                 </>
               ) : (
-                'Generate Review'
+                t('generateReview')
               )}
             </button>
           )}
@@ -109,10 +111,10 @@ function ReviewEditor({
               <div className="regeneration-info">
                 {canRegenerate ? (
                   <span className="regeneration-count">
-                    {remainingRegenerations} regeneration{remainingRegenerations !== 1 ? 's' : ''} left
+                    {t('regenerationsLeft', remainingRegenerations)}
                   </span>
                 ) : (
-                  <span className="regeneration-count no-more">No more regenerations</span>
+                  <span className="regeneration-count no-more">{t('noMoreRegenerations')}</span>
                 )}
               </div>
 
@@ -121,15 +123,15 @@ function ReviewEditor({
                   className="regenerate-btn"
                   onClick={onRegenerate}
                   disabled={!canRegenerate || isLoading}
-                  aria-label="Regenerate review"
+                  aria-label={t('regenerate')}
                 >
                   {isLoading ? (
                     <>
                       <span className="spinner small"></span>
-                      <span>Regenerating...</span>
+                      <span>{t('regenerating')}</span>
                     </>
                   ) : (
-                    'Regenerate'
+                    t('regenerate')
                   )}
                 </button>
                 
@@ -137,17 +139,17 @@ function ReviewEditor({
                   className={`copy-btn ${copied ? 'copied' : ''}`}
                   onClick={handleCopy}
                   disabled={!localReviewText.trim()}
-                  aria-label="Copy review to clipboard"
+                  aria-label={t('copy')}
                 >
                   {copied ? (
                     <>
                       <span className="checkmark">✓</span>
-                      <span>Copied!</span>
+                      <span>{t('copied')}</span>
                     </>
                   ) : (
                     <>
                       <span>📋</span>
-                      <span>Copy</span>
+                      <span>{t('copy')}</span>
                     </>
                   )}
                 </button>
@@ -162,17 +164,17 @@ function ReviewEditor({
           className={`copy-btn ${copied ? 'copied' : ''}`}
           onClick={handleCopy}
           disabled={!localReviewText.trim()}
-          aria-label="Copy review to clipboard"
+          aria-label={t('copy')}
         >
           {copied ? (
             <>
               <span className="checkmark">✓</span>
-              <span>Copied!</span>
+              <span>{t('copied')}</span>
             </>
           ) : (
             <>
               <span>📋</span>
-              <span>Copy</span>
+              <span>{t('copy')}</span>
             </>
           )}
         </button>

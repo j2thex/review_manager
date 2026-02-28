@@ -8,7 +8,7 @@ const openai = new OpenAI({
 // Generates a **positive** Google Maps review only.
 // We never generate negative reviews – if the user disliked the service
 // they can type their own text in the UI instead.
-export async function generateReview(stressPoints = []) {
+export async function generateReview(stressPoints = [], lang = 'en') {
   if (!import.meta.env.VITE_CHATGPT_API_KEY) {
     throw new Error('ChatGPT API key is not configured. Please set VITE_CHATGPT_API_KEY in your .env file.')
   }
@@ -17,7 +17,10 @@ export async function generateReview(stressPoints = []) {
   // EDIT THE PROMPT HERE (positive reviews only)
   // ============================================
   // Construct the prompt based on user selections
-  let prompt = `Write a positive Google Maps review for a Vodafone store. Be unique and creatve. Mention Eimy who helped you. Choose a random positive word from the English disctionary and use it in the review. `
+  const langInstruction = lang === 'es'
+    ? 'Write the entire review in Spanish.'
+    : 'Write the entire review in English.'
+  let prompt = `Write a positive Google Maps review for a Vodafone store. Be unique and creative. Mention Eimy who helped you. Choose a random positive word from the dictionary and use it in the review. ${langInstruction} `
 
   if (stressPoints && stressPoints.length > 0) {
     prompt += `Please highlight the following aspects in a natural way: ${stressPoints.join(', ')}. `

@@ -1,8 +1,10 @@
 import './Instructions.css'
 import googleReviewsLogo from '../assets/google-reviews-logo.png'
 import screenGif from '../assets/screen.gif'
+import { useTranslation } from '../LanguageContext'
 
 function Instructions() {
+  const { t } = useTranslation()
   const googleMapsUrl = import.meta.env.VITE_GOOGLE_MAPS_REVIEW_URL || 'https://maps.google.com/reviews/placeholder'
 
   return (
@@ -16,7 +18,7 @@ function Instructions() {
             e.target.style.display = 'none'
           }}
         />
-        <h2 className="section-title">Next Steps</h2>
+        <h2 className="section-title">{t('nextSteps')}</h2>
       </div>
       
       <div className="button-and-gif">
@@ -27,19 +29,19 @@ function Instructions() {
             rel="noopener noreferrer"
             className="google-link"
           >
-            <span>Go to Google Maps Reviews</span>
+            <span>{t('goToReviews')}</span>
             <span className="external-icon">↗</span>
           </a>
 
           <div className="steps-list">
-            <h3>How to submit your review:</h3>
+            <h3>{t('howToSubmit')}</h3>
             <ol>
-              <li>Click the link above to open Google Maps reviews</li>
-              <li>Switch to the reviews tab</li>
-              <li>Click "Post" in the bottom of the screen</li>
-              <li>Click "Rate and Review"</li>
-              <li>Paste the review you copied from above</li>
-              <li>Click "post" to send your review</li>
+              <li>{t('step1')}</li>
+              <li>{t('step2')}</li>
+              <li>{t('step3')}</li>
+              <li>{t('step4')}</li>
+              <li>{t('step5')}</li>
+              <li>{t('step6')}</li>
             </ol>
           </div>
         </div>

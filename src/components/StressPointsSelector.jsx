@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import './StressPointsSelector.css'
+import { useTranslation } from '../LanguageContext'
 
-const PREDEFINED_OPTIONS = [
-  'Service Quality',
-  'Staff Friendliness',
-  'Price/Value',
-  'Speed/Efficiency',
-  'Location Convenience'
+const PREDEFINED_OPTION_KEYS = [
+  'serviceQuality',
+  'staffFriendliness',
+  'priceValue',
+  'speedEfficiency',
+  'locationConvenience',
 ]
 
 function StressPointsSelector({ selectedPoints, onSelectionChange }) {
+  const { t } = useTranslation()
   const [customInput, setCustomInput] = useState('')
   const [showCustomInput, setShowCustomInput] = useState(false)
   const maxSelections = 3
@@ -39,28 +41,32 @@ function StressPointsSelector({ selectedPoints, onSelectionChange }) {
 
   const canSelectMore = selectedPoints.length < maxSelections
 
+  const getOptionLabel = (key) => t(key)
+  const getOptionValue = (key) => t(key) // value sent to API = translated label
+
   return (
     <div className="stress-points-selector">
-      <h2 className="section-title">Select up to 3 things to stress on</h2>
+      <h2 className="section-title">{t('stressPointsTitle')}</h2>
       
       <div className="predefined-options">
-        {PREDEFINED_OPTIONS.map(option => {
-          const isSelected = selectedPoints.includes(option)
+        {PREDEFINED_OPTION_KEYS.map(key => {
+          const label = getOptionLabel(key)
+          const isSelected = selectedPoints.includes(label)
           const isDisabled = !isSelected && !canSelectMore
           
           return (
             <label
-              key={option}
+              key={key}
               className={`option-label ${isSelected ? 'selected' : ''} ${isDisabled ? 'disabled' : ''}`}
             >
               <input
                 type="checkbox"
                 checked={isSelected}
-                onChange={() => handlePredefinedToggle(option)}
+                onChange={() => handlePredefinedToggle(label)}
                 disabled={isDisabled}
-                aria-label={`Select ${option}`}
+                aria-label={`Select ${label}`}
               />
-              <span>{option}</span>
+              <span>{label}</span>
             </label>
           )
         })}
@@ -70,9 +76,9 @@ function StressPointsSelector({ selectedPoints, onSelectionChange }) {
         <button
           onClick={() => setShowCustomInput(true)}
           className="add-own-btn"
-          aria-label="Add your own stress point"
+          aria-label={t('addYourOwn')}
         >
-          + Add your own
+          {t('addYourOwn')}
         </button>
       )}
 
@@ -89,7 +95,7 @@ function StressPointsSelector({ selectedPoints, onSelectionChange }) {
                   handleCustomAdd()
                 }
               }}
-              placeholder="Enter your own..."
+              placeholder={t('enterYourOwn')}
               disabled={!canSelectMore}
               className="custom-input"
               aria-label="Custom stress point input"
@@ -101,7 +107,7 @@ function StressPointsSelector({ selectedPoints, onSelectionChange }) {
               className="add-btn"
               aria-label="Add custom stress point"
             >
-              Add
+              {t('add')}
             </button>
             <button
               onClick={() => {
@@ -109,9 +115,9 @@ function StressPointsSelector({ selectedPoints, onSelectionChange }) {
                 setCustomInput('')
               }}
               className="cancel-btn"
-              aria-label="Cancel"
+              aria-label={t('cancel')}
             >
-              Cancel
+              {t('cancel')}
             </button>
           </div>
         </div>

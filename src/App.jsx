@@ -5,9 +5,11 @@ import StressPointsSelector from './components/StressPointsSelector'
 import ReviewEditor from './components/ReviewEditor'
 import Instructions from './components/Instructions'
 import { generateReview } from './services/chatgptService'
+import { useTranslation } from './LanguageContext'
 import './App.css'
 
 function App() {
+  const { t, lang } = useTranslation()
   const [preference, setPreference] = useState(null) // 'like' or 'dislike'
   const [stressPoints, setStressPoints] = useState([])
   const [generatedReview, setGeneratedReview] = useState('')
@@ -30,7 +32,7 @@ function App() {
 
   const handleGenerate = async () => {
     if (preference !== 'like') {
-      setError('We only generate positive reviews. Please select \"I liked the service\" to generate a review, or write your own below.')
+      setError(t('errorGenerateOnly'))
       return
     }
 
@@ -38,11 +40,11 @@ function App() {
     setError(null)
 
     try {
-      const review = await generateReview(stressPoints)
+      const review = await generateReview(stressPoints, lang)
       setGeneratedReview(review)
       setRegenerationCount(0) // Reset count for new generation
     } catch (err) {
-      setError(err.message || 'Failed to generate review. Please try again.')
+      setError(err.message || t('errorGenerateFailed'))
       console.error('Review generation error:', err)
     } finally {
       setIsLoading(false)
@@ -62,7 +64,7 @@ function App() {
     setError(null)
 
     try {
-      const review = await generateReview(stressPoints)
+      const review = await generateReview(stressPoints, lang)
       setGeneratedReview(review)
       setRegenerationCount(prev => prev + 1)
     } catch (err) {
