@@ -34,12 +34,9 @@ export const translations = {
     nextSteps: 'Next Steps',
     goToReviews: 'Go to Google Maps Reviews',
     howToSubmit: 'How to submit your review:',
-    step1: 'Click the link above to open Google Maps reviews',
-    step2: 'Switch to the reviews tab',
-    step3: 'Click "Post" in the bottom of the screen',
-    step4: 'Click "Rate and Review"',
-    step5: 'Paste the review you copied from above',
-    step6: 'Click "post" to send your review',
+    step1: 'Click the link above to open Google Reviews',
+    step2: 'Paste the review you copied',
+    step3: 'Click "Post" to submit your review',
 
     // Errors
     errorGenerateOnly: 'We only generate positive reviews. Please select "Loved it" to generate a review, or write your own below.',
@@ -80,12 +77,9 @@ export const translations = {
     nextSteps: 'Próximos pasos',
     goToReviews: 'Ir a reseñas de Google Maps',
     howToSubmit: 'Cómo publicar tu reseña:',
-    step1: 'Haz clic en el enlace arriba para abrir las reseñas de Google Maps',
-    step2: 'Cambia a la pestaña de reseñas',
-    step3: 'Haz clic en "Publicar" en la parte inferior de la pantalla',
-    step4: 'Haz clic en "Calificar y reseñar"',
-    step5: 'Pega la reseña que copiaste arriba',
-    step6: 'Haz clic en "publicar" para enviar tu reseña',
+    step1: 'Haz clic en el enlace arriba para abrir Google Reviews',
+    step2: 'Pega la reseña que copiaste',
+    step3: 'Haz clic en "Publicar" para enviar tu reseña',
 
     // Errors
     errorGenerateOnly: 'Solo generamos reseñas positivas. Selecciona "Me encantó" para generar una reseña o escribe la tuya abajo.',
